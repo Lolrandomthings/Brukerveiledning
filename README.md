@@ -41,4 +41,33 @@ By applying display: grid to a grid container, only its direct children turn int
 ```
 
 ## 3. The :has() Pseudo-Class
+The :has() pseudo-class allows you to style an element based on its children or contents. It acts as a parent selector, which was something previously missing in CSS.
 
+### Exsample
+
+```css
+h2:has(+ p) {
+  color: gray;
+  background-color: gold;
+  border: 2px dotted red;
+}
+```
+
+## 4. The :is() Pseudo-Clas
+The :is() pseudo-class is a way to simplify multiple selectors that need the same style. It reduces repetition and makes CSS more concise.
+```css
+ol {
+  list-style-type: upper-alpha;
+  color: darkblue;
+}
+
+/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+:is(ol, ul, menu:unsupported) :is(ol, ul) {
+  color: green;
+}
+
+:is(ol, ul) :is(ol, ul) ol {
+  list-style-type: lower-greek;
+  color: chocolate;
+}
+```
